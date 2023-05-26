@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { type EPartASPart } from '../models/epartaspart';
 import BaseButton from './BaseButton.vue';
+import { RouterLink } from 'vue-router'
 
 const row = defineProps<EPartASPart>()
 </script>
@@ -22,7 +23,7 @@ const row = defineProps<EPartASPart>()
         <td>{{ row.aspart.mass }}</td>
         <td>{{ row.aspart.partType }}</td>
         <td>{{ row.aspart.quantity }}</td>
-        <td><BaseButton @click="$emit('edit')" message="Edit" /></td>
+        <td><RouterLink :to="'/edit/' + row.id">Edit</RouterLink></td>
         <td><BaseButton @click="$emit('remove')" message="Remove" /></td>
     </tr>
 </template>

@@ -43,6 +43,8 @@ function remove(rowId: number) {
   rows.value = rows.value.filter(row => row.id != rowId)
 }
 
+//function edit()
+
 </script>
 
 <template>
@@ -55,6 +57,7 @@ function remove(rowId: number) {
           v-for="row in rows" 
           :key="row.id" 
           v-bind="row"
+          
           @remove="remove(row.id)" />
       </tbody>
       <tfoot>
