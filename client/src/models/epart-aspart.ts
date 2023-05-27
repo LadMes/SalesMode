@@ -4,4 +4,4 @@ export interface EPartASPart {
     family: string;
     epart: Part;
     aspart: Part;
-}
+};

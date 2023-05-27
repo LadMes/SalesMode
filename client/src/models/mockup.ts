@@ -1,4 +1,4 @@
-import { type EPartASPart } from "./epartaspart";
+import { type EPartASPart } from "./epart-aspart";
 
 
 const mirrorAssy: Part = {

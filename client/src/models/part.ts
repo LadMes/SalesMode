@@ -7,4 +7,4 @@ interface Part {
     mass: number;
     partType: string;
     quantity: number;
-}
+};
