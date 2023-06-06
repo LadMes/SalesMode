@@ -1,44 +1,41 @@
 import { ref } from "vue";
 import { defineStore } from "pinia";
 import mockup from "../models/mockup";
+import type { SalesMode } from "@/models/sales-mode";
 
 export const useSalesModeStore = defineStore("salesMode", () => {
-    const rows = ref(mockup);
+    const salesMode: SalesMode = {
+        type: "SM",
+        family: "XGD",
+        GFE: "43",
+        rows: mockup
+    }
+
+    const table = ref(salesMode);
 
     function addRow() {
-        const mirrorAssy: Part = {
-            GP: "F10582/AF",
-            reference: "8450003869",
-            supplierNumber: "-",
-            nameRus: "Зеркало наружное левое",
-            nameEng: "MIRROR-OTR LH",
-            mass: 1.6,
-            partType: "A",
-            quantity: 1
-        };
-        const mirrorAssyWithoutCover: Part = {
-            GP: "F10582/KK",
-            reference: "8466635869",
-            supplierNumber: "111",
-            nameRus: "Зеркало боковое с электроприводом и обогревом в сборе без задней крышки левое",
-            nameEng: "Side mirror assembly with electric drive and heating without back cover left",
-            mass: 1,
+        const emptyASPart: Part = {
+            GP: "",
+            reference: "",
+            supplierNumber: "",
+            nameRus: "",
+            nameEng: "",
+            mass: 0,
             partType: "B",
             quantity: 1
         };
-        let count = rows.value.length;
+        let count = table.value.rows.length;
         let fifth = {
               id: ++count,
               level: 1,
-              family: "XGD",
-              epart: mirrorAssy,
-              aspart: mirrorAssyWithoutCover
+              epart: table.value.rows[count - 1].epart,
+              aspart: emptyASPart
         };
-        rows.value = rows.value.concat(fifth);
+        table.value.rows = table.value.rows.concat(fifth);
     }
 
     function remove(rowId: number) {
-        rows.value = rows.value.filter(row => row.id != rowId)
+        table.value.rows = table.value.rows.filter(row => row.id != rowId)
         .map(row => {
             if (row.id > rowId) {
                 row.id--;
@@ -47,5 +44,5 @@ export const useSalesModeStore = defineStore("salesMode", () => {
         })
     }
 
-    return { rows, addRow, remove };
+    return { table, addRow, remove };
 });

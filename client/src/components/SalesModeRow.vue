@@ -10,7 +10,6 @@ const row = defineProps<EPartASPart>()
 	<tr>
         <td>{{ row.id }}</td>
         <td>{{ row.level }}</td>
-        <td>{{ row.family }}</td>
         <td>{{ row.epart.GP }}</td>
         <td>{{ row.epart.reference }}</td>
         <td>{{ row.epart.nameRus }}</td>

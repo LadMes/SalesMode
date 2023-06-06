@@ -60,28 +60,24 @@ const mockup: Array<EPartASPart> = [
     {
         id: 1,
         level: 1,
-        family: "XGD",
         epart: mirrorAssy,
         aspart: mirrorAssyWithoutCover
     },
     {
         id: 2,
         level: 1,
-        family: "XGD",
         epart: mirrorAssy,
         aspart: mirrorElement
     },
     {
         id: 3,
         level: 1,
-        family: "XGD",
         epart: mirrorAssy,
         aspart: mirrorCover
     },
     {
         id: 4,
         level: 1,
-        family: "XGD",
         epart: mirrorAssy,
         aspart: sts
     }

@@ -3,9 +3,12 @@
 import SalesModeRow from "./SalesModeRow.vue";
 import TheSalesModeTableHeader from "./TheSalesModeTableHeader.vue";
 import BaseButton from "./BaseButton.vue";
-import { useSalesModeStore } from "../stores/sales-mode";
+import type { EPartASPart } from "@/models/epart-aspart";
 
-const store = useSalesModeStore();
+interface Props {
+  rows: EPartASPart[]
+}
+defineProps<Props>();
 
 </script>
 
@@ -16,14 +19,14 @@ const store = useSalesModeStore();
       </thead>
       <tbody>
         <SalesModeRow 
-          v-for="row in store.rows" 
+          v-for="row in rows"
           :key="row.id" 
           v-bind="row"
           
-          @remove="store.remove(row.id)" />
+          @remove="" />
       </tbody>
       <tfoot>
-        <BaseButton @click="store.addRow" message="Add" />
+        <BaseButton @click="" message="Add" />
       </tfoot>
     </table>
 </template>

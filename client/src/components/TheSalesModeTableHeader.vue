@@ -2,7 +2,6 @@
     <tr>
         <th rowspan="2">No.</th>
         <th rowspan="2">Level</th>
-        <th rowspan="2">Family</th>
         <th colspan="4">E-Part</th>
         <th colspan="8">AS-Part</th>
         <th colspan="2" rowspan="2">Buttons</th>
