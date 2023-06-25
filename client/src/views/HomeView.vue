@@ -7,7 +7,10 @@ const store = useSalesModeStore();
 
 <template>
   <main>
-    <TheSalesModeTable :rows=store.table.rows />
+    <TheSalesModeTable 
+      :rows=store.table.rows 
+      @add-row="store.addRow"
+      @remove-row="store.removeRow" />
   </main>
 </template>
 

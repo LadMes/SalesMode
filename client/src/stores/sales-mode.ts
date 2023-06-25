@@ -26,7 +26,7 @@ export const useSalesModeStore = defineStore("salesMode", () => {
         };
         let count = table.value.rows.length;
         let fifth = {
-              id: ++count,
+              id: count + 1,
               level: 1,
               epart: table.value.rows[count - 1].epart,
               aspart: emptyASPart
@@ -34,7 +34,7 @@ export const useSalesModeStore = defineStore("salesMode", () => {
         table.value.rows = table.value.rows.concat(fifth);
     }
 
-    function remove(rowId: number) {
+    function removeRow(rowId: number) {
         table.value.rows = table.value.rows.filter(row => row.id != rowId)
         .map(row => {
             if (row.id > rowId) {
@@ -44,5 +44,5 @@ export const useSalesModeStore = defineStore("salesMode", () => {
         })
     }
 
-    return { table, addRow, remove };
+    return { table, addRow, removeRow };
 });

@@ -6,9 +6,14 @@ import BaseButton from "./BaseButton.vue";
 import type { EPartASPart } from "@/models/epart-aspart";
 
 interface Props {
-  rows: EPartASPart[]
+  rows: EPartASPart[],
 }
 defineProps<Props>();
+
+const emit = defineEmits<{
+  addRow: []
+  removeRow: [rowId: number]
+}>();
 
 </script>
 
@@ -23,10 +28,10 @@ defineProps<Props>();
           :key="row.id" 
           v-bind="row"
           
-          @remove="" />
+          @remove="emit('removeRow', row.id)" />
       </tbody>
       <tfoot>
-        <BaseButton @click="" message="Add" />
+        <BaseButton @click="emit('addRow')" message="Add" />
       </tfoot>
     </table>
 </template>
