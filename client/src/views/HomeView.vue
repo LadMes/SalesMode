@@ -8,7 +8,7 @@ const store = useSalesModeStore();
 <template>
   <main>
     <TheSalesModeTable 
-      :rows=store.table.rows 
+      :rows=store.rows 
       @add-row="store.addRow"
       @remove-row="store.removeRow" />
   </main>
