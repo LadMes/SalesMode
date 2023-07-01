@@ -7,6 +7,7 @@ import type { EPartASPart } from "@/models/epart-aspart";
 export const useSalesModeStore = defineStore("salesMode", () => {
     // Hardcoded, in the future this information retrieved upon creating a new Sales Mode
     // or from DB 
+    // To-Do: Delete hardacoded code, imitate getting data from the server
     const salesMode: SalesMode = {
         type: "SM",
         family: "XGD",
@@ -16,32 +17,12 @@ export const useSalesModeStore = defineStore("salesMode", () => {
 
     const rows = ref(mockup);
 
-    function addRow() {
-        const emptyASPart: Part = {
-            GP: "",
-            reference: "",
-            supplierNumber: "",
-            nameRus: "",
-            nameEng: "",
-            mass: 0,
-            quantity: 1
-        };
+    function addRow(): void {
+        const emptyASPart: Part = generateEmptyPart();
 
         let count = rows.value.length;
-        let newEPart: Part;
-        if (count === 0) {
-            newEPart = {
-                GP: "",
-                reference: "",
-                supplierNumber: "",
-                nameRus: "",
-                nameEng: "",
-                mass: 0,
-                quantity: 1
-            }
-        } else {
-            newEPart = rows.value[count - 1].epart
-        }
+        const newEPart: Part = count === 0 ? generateEmptyPart() 
+                                        : rows.value[count - 1].epart;
 
         let newRow: EPartASPart = {
             id: count + 1,
@@ -50,18 +31,31 @@ export const useSalesModeStore = defineStore("salesMode", () => {
             aspart: emptyASPart,
             partType: "B"
         };
+
         rows.value = rows.value.concat(newRow);
     }
 
-    function removeRow(rowId: number) {
+    function removeRow(rowId: number): void {
         rows.value = rows.value.filter(row => row.id != rowId)
         .map(row => {
             if (row.id > rowId) {
                 row.id--;
             }
             return row;
-        })
+        });
     }
 
-    return { rows, addRow, removeRow };
+    return { salesMode, rows, addRow, removeRow };
 });
+
+function generateEmptyPart(): Part {
+    return {
+        GP: "",
+        reference: "",
+        supplierNumber: "",
+        nameRus: "",
+        nameEng: "",
+        mass: 0,
+        quantity: 1
+    }
+}
