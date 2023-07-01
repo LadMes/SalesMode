@@ -8,7 +8,6 @@ const mirrorAssy: Part = {
     nameRus: "Зеркало наружное левое",
     nameEng: "MIRROR-OTR LH",
     mass: 1.6,
-    partType: "A",
     quantity: 1
 };
 
@@ -19,7 +18,6 @@ const mirrorAssyWithoutCover: Part = {
     nameRus: "Зеркало боковое с электроприводом и обогревом в сборе без задней крышки левое",
     nameEng: "Side mirror assembly with electric drive and heating without back cover left",
     mass: 1,
-    partType: "B",
     quantity: 1
 };
 
@@ -30,7 +28,6 @@ const mirrorElement: Part = {
     nameRus: "Зеркальный элемент с нагревательной панелью в сборе левый",
     nameEng: "Mirror element with heating panel assembly left",
     mass: 0.2,
-    partType: "B",
     quantity: 1
 };
 
@@ -41,7 +38,6 @@ const mirrorCover: Part = {
     nameRus: "Крышка зеркала наружная левая (для БУП)",
     nameEng: "Mirror cover outer left (for side turn signal)",
     mass: 0.2,
-    partType: "B",
     quantity: 1
 };
 
@@ -52,7 +48,6 @@ const sts: Part = {
     nameRus: "Указатель поворота боковой левый",
     nameEng: "Side turn signal left and screws",
     mass: 0.02,
-    partType: "B",
     quantity: 1
 };
 
@@ -61,25 +56,29 @@ const mockup: Array<EPartASPart> = [
         id: 1,
         level: 1,
         epart: mirrorAssy,
-        aspart: mirrorAssyWithoutCover
+        aspart: mirrorAssyWithoutCover,
+        partType: "B"
     },
     {
         id: 2,
         level: 1,
         epart: mirrorAssy,
-        aspart: mirrorElement
+        aspart: mirrorElement,
+        partType: "B"
     },
     {
         id: 3,
         level: 1,
         epart: mirrorAssy,
-        aspart: mirrorCover
+        aspart: mirrorCover,
+        partType: "B"
     },
     {
         id: 4,
         level: 1,
         epart: mirrorAssy,
-        aspart: sts
+        aspart: sts,
+        partType: "B"
     }
 ];
 

@@ -3,4 +3,5 @@ export interface EPartASPart {
     level: number;
     epart: Part;
     aspart: Part;
+    partType: "A" | "B" | "C";
 };

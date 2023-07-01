@@ -2,6 +2,7 @@ import { ref } from "vue";
 import { defineStore } from "pinia";
 import mockup from "../models/mockup";
 import type { SalesMode } from "@/models/sales-mode";
+import type { EPartASPart } from "@/models/epart-aspart";
 
 export const useSalesModeStore = defineStore("salesMode", () => {
     // Hardcoded, in the future this information retrieved upon creating a new Sales Mode
@@ -10,7 +11,7 @@ export const useSalesModeStore = defineStore("salesMode", () => {
         type: "SM",
         family: "XGD",
         GFE: "43",
-        rows: mockup // ??
+        rows: mockup
     }
 
     const rows = ref(mockup);
@@ -23,9 +24,9 @@ export const useSalesModeStore = defineStore("salesMode", () => {
             nameRus: "",
             nameEng: "",
             mass: 0,
-            partType: "B",
             quantity: 1
         };
+
         let count = rows.value.length;
         let newEPart: Part;
         if (count === 0) {
@@ -36,17 +37,18 @@ export const useSalesModeStore = defineStore("salesMode", () => {
                 nameRus: "",
                 nameEng: "",
                 mass: 0,
-                partType: "A",
                 quantity: 1
             }
         } else {
             newEPart = rows.value[count - 1].epart
         }
-        let newRow = {
-              id: count + 1,
-              level: 1,
-              epart: newEPart,
-              aspart: emptyASPart
+
+        let newRow: EPartASPart = {
+            id: count + 1,
+            level: 1,
+            epart: newEPart,
+            aspart: emptyASPart,
+            partType: "B"
         };
         rows.value = rows.value.concat(newRow);
     }

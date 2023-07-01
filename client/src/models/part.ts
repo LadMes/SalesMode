@@ -5,6 +5,5 @@ interface Part {
     nameRus: string;
     nameEng: string;
     mass: number;
-    partType: "A" | "B" | "C";
     quantity: number;
 };
