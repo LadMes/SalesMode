@@ -9,11 +9,13 @@ export const useSalesModeStore = defineStore("salesMode", () => {
     // or from DB 
     // To-Do: Delete hardacoded code, imitate getting data from the server
     const salesMode: SalesMode = {
+        id: 1,
+        name: "Front mirror with STS",
         type: "SM",
         family: "XGD",
         GFE: "43",
         rows: mockup
-    }
+    };
 
     const rows = ref(mockup);
 

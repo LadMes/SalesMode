@@ -1,16 +1,27 @@
 <script setup lang="ts">
-import TheSalesModeTable from "../components/TheSalesModeTable.vue";
-import { useSalesModeStore } from "../stores/sales-mode";
+import { ref } from "vue";
+import { getSalesModes } from "../scripts/data-extractors";
+import SalesModeRow from "@/components/SalesModeRow.vue";
 
-const store = useSalesModeStore();
+const salesModes = ref(getSalesModes());
 </script>
 
 <template>
   <main>
-    <TheSalesModeTable 
-      :rows=store.rows 
-      @add-row="store.addRow"
-      @remove-row="store.removeRow" />
+    <table>
+      <thead>
+        <tr>
+          <td>Family</td>
+          <td>GFE</td>
+          <td>Name</td>
+          <td>Type</td>
+          <td>Buttons</td>
+        </tr>
+      </thead>
+      <tbody>
+        <SalesModeRow v-for="salesMode in salesModes" :key="salesMode.id" v-bind="salesMode"/>
+      </tbody>
+    </table>
   </main>
 </template>
 

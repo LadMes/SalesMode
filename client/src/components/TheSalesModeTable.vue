@@ -1,6 +1,6 @@
 <script setup lang="ts">
 //import { ref } from "vue";
-import SalesModeRow from "./SalesModeRow.vue";
+import SalesModeTableRow from "./SalesModeTableRow.vue";
 import TheSalesModeTableHeader from "./TheSalesModeTableHeader.vue";
 import BaseButton from "./BaseButton.vue";
 import type { EPartASPart } from "@/models/epart-aspart";
@@ -23,7 +23,7 @@ const emit = defineEmits<{
         <TheSalesModeTableHeader />
       </thead>
       <tbody>
-        <SalesModeRow 
+        <SalesModeTableRow 
           v-for="row in rows"
           :key="row.id" 
           v-bind="row"
