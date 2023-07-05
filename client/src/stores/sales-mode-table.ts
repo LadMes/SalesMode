@@ -1,23 +1,12 @@
 import { ref } from "vue";
 import { defineStore } from "pinia";
 import mockup from "../models/mockup";
-import type { SalesMode } from "@/models/sales-mode";
+import { getSalesModeRows } from "@/scripts/data-extractors";
 import type { EPartASPart } from "@/models/epart-aspart";
 
 export const useSalesModeStore = defineStore("salesMode", () => {
-    // Hardcoded, in the future this information retrieved upon creating a new Sales Mode
-    // or from DB 
-    // To-Do: Delete hardacoded code, imitate getting data from the server
-    const salesMode: SalesMode = {
-        id: 1,
-        name: "Front mirror with STS",
-        type: "SM",
-        family: "XGD",
-        GFE: "43",
-        rows: mockup
-    };
 
-    const rows = ref(mockup);
+    const rows = ref(getSalesModeRows(1));
 
     function addRow(): void {
         const emptyASPart: Part = generateEmptyPart();
@@ -47,7 +36,7 @@ export const useSalesModeStore = defineStore("salesMode", () => {
         });
     }
 
-    return { salesMode, rows, addRow, removeRow };
+    return { rows, addRow, removeRow };
 });
 
 function generateEmptyPart(): Part {

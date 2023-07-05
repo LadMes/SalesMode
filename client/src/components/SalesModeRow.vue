@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { SalesMode } from '@/models/sales-mode';
+import type { SalesModeInfo } from '@/models/sales-mode-info';
 
-const salesMode = defineProps<SalesMode>();
+const salesMode = defineProps<SalesModeInfo>();
 </script>
 
 <template>
@@ -12,4 +12,4 @@ const salesMode = defineProps<SalesMode>();
         <td>{{ salesMode.type }}</td>
         <td><RouterLink :to="'/salesmode/' + salesMode.id">Edit</RouterLink></td>
     </tr>
-</template>
+</template>@/models/sales-mode-info

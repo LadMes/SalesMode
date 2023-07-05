@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import TheSalesModeTable from "../components/TheSalesModeTable.vue";
-import { useSalesModeStore } from "../stores/sales-mode";
+import { useSalesModeStore } from "../stores/sales-mode-table";
 
 const store = useSalesModeStore();
 </script>
@@ -16,4 +16,4 @@ const store = useSalesModeStore();
 
 <style>
 
-</style>
+</style>../stores/sales-mode-table
